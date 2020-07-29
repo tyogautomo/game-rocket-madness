@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: 6434139057387200584}
   - component: {fileID: 6434139057387200587}
   - component: {fileID: 6434139057387200586}
-  - component: {fileID: 6434139057387200585}
+  - component: {fileID: 1493497329}
   m_Layer: 0
   m_Name: FootRight
   m_TagString: Untagged
@@ -262,8 +262,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &6434139057387200585
-SphereCollider:
+--- !u!136 &1493497329
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -272,9 +272,10 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.5000002
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0.0000009536743, y: -0.000000059604645, z: -2.842171e-14}
 --- !u!1 &6434139057461570566
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,7 +534,7 @@ GameObject:
   - component: {fileID: 6434139058280842892}
   - component: {fileID: 6434139058280842895}
   - component: {fileID: 6434139058280842894}
-  - component: {fileID: 6434139058280842893}
+  - component: {fileID: 897596245}
   m_Layer: 0
   m_Name: FootRight
   m_TagString: Untagged
@@ -600,8 +601,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &6434139058280842893
-SphereCollider:
+--- !u!136 &897596245
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -610,9 +611,10 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.50000006
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.000000059604645, z: 0}
 --- !u!1 &6434139058361457588
 GameObject:
   m_ObjectHideFlags: 0
@@ -624,7 +626,7 @@ GameObject:
   - component: {fileID: 6434139058361457589}
   - component: {fileID: 6434139058361457584}
   - component: {fileID: 6434139058361457591}
-  - component: {fileID: 6434139058361457590}
+  - component: {fileID: 1623448144}
   m_Layer: 0
   m_Name: FootRight
   m_TagString: Untagged
@@ -691,8 +693,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &6434139058361457590
-SphereCollider:
+--- !u!136 &1623448144
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -701,9 +703,10 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.50000006
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.000000059604645, z: 0}
 --- !u!1 &6434139058452502316
 GameObject:
   m_ObjectHideFlags: 0
@@ -1022,7 +1025,7 @@ GameObject:
   - component: {fileID: 6434139058806656803}
   - component: {fileID: 6434139058806656734}
   - component: {fileID: 6434139058806656733}
-  - component: {fileID: 6434139058806656732}
+  - component: {fileID: 1405808467}
   m_Layer: 0
   m_Name: RocketNose
   m_TagString: Untagged
@@ -1089,8 +1092,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &6434139058806656732
-SphereCollider:
+--- !u!136 &1405808467
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1099,8 +1102,9 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.49999997
+  m_Height: 1
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6434139058951193891
 GameObject:
@@ -1111,6 +1115,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6434139058951193820}
+  - component: {fileID: 1184858590}
+  - component: {fileID: 6352078214342246779}
+  - component: {fileID: 1184858592}
   m_Layer: 0
   m_Name: Rocket
   m_TagString: Untagged
@@ -1140,6 +1147,130 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1184858590
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6434139058951193891}
+  serializedVersion: 2
+  m_Mass: 0.07
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!82 &6352078214342246779
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6434139058951193891}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 9886a20f1489b1847a45de71d88e4cfe, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.6
+  m_Pitch: 0.8
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1184858592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6434139058951193891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9341b7be29984de46b7bdedd07e97a0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6434139058955541333
 GameObject:
   m_ObjectHideFlags: 0
@@ -1151,7 +1282,7 @@ GameObject:
   - component: {fileID: 6434139058955541334}
   - component: {fileID: 6434139058955541329}
   - component: {fileID: 6434139058955541328}
-  - component: {fileID: 6434139058955541335}
+  - component: {fileID: 1159650942}
   m_Layer: 0
   m_Name: FootRight
   m_TagString: Untagged
@@ -1218,8 +1349,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &6434139058955541335
-SphereCollider:
+--- !u!136 &1159650942
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1228,9 +1359,10 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.5000002
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0.0000009536743, y: -0.000000059604645, z: 2.842171e-14}
 --- !u!1 &6434139059007147092
 GameObject:
   m_ObjectHideFlags: 0
