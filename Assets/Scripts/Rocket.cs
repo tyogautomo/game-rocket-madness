@@ -6,15 +6,18 @@ using Utils;
 public class Rocket : MonoBehaviour {
 
     Rigidbody rigidbody;
-    AudioSource thrustAudio;
+    AudioSource audioSource;
     [SerializeField] private float rcsThrust = 200f;
     [SerializeField] private float mainThrust = 200f;
+    [SerializeField] private AudioClip mainEngine;
+    [SerializeField] private AudioClip explodeSound;
+    [SerializeField] private AudioClip successSound;
     State currentState = State.Alive;
 
     // Start is called before the first frame update
     void Start() {
         rigidbody = GetComponent<Rigidbody>();
-        thrustAudio = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -29,18 +32,29 @@ public class Rocket : MonoBehaviour {
 
         switch (collision.gameObject.tag) {
             case "Friendly":
-                print("nothing");
+                print("friendly");
                 break;
             case "Finish":
-                currentState = State.Transcending;
-                Invoke("LoadNextScene", 1f);
+                ExcecuteFinish();
                 break;
             default:
-                print("dead");
-                currentState = State.Dying;
-                Invoke("ResetLevel", 1f);
+                ExcecuteDeath();
                 break;
         }
+    }
+
+    private void ExcecuteDeath() {
+        audioSource.Stop();
+        audioSource.PlayOneShot(explodeSound);
+        currentState = State.Dying;
+        Invoke("ResetLevel", 1f);
+    }
+
+    private void ExcecuteFinish() {
+        audioSource.Stop();
+        audioSource.PlayOneShot(successSound);
+        currentState = State.Transcending;
+        Invoke("LoadNextScene", 1f);
     }
 
     private void ResetLevel() {
@@ -74,13 +88,13 @@ public class Rocket : MonoBehaviour {
         if (Input.GetKey(KeyCode.Space)) {
 
             rigidbody.AddRelativeForce(Vector3.up * adjustFrame);
-            if (!thrustAudio.isPlaying) {
-                thrustAudio.Play();
+            if (!audioSource.isPlaying) {
+                audioSource.PlayOneShot(mainEngine);
             }
         }
 
         if (Input.GetKeyUp(KeyCode.Space)) {
-            thrustAudio.Stop();
+            audioSource.Stop();
         }
     }
 }
