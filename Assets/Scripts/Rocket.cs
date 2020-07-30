@@ -7,12 +7,15 @@ public class Rocket : MonoBehaviour {
 
     Rigidbody rigidbody;
     AudioSource audioSource;
-    [SerializeField] private float rcsThrust = 200f;
-    [SerializeField] private float mainThrust = 200f;
-    [SerializeField] private AudioClip mainEngine;
-    [SerializeField] private AudioClip explodeSound;
-    [SerializeField] private AudioClip successSound;
     State currentState = State.Alive;
+    [SerializeField] float rcsThrust = 200f;
+    [SerializeField] float mainThrust = 200f;
+    [SerializeField] AudioClip mainEngine;
+    [SerializeField] AudioClip explodeSound;
+    [SerializeField] AudioClip successSound;
+    [SerializeField] ParticleSystem engineParticles;
+    [SerializeField] ParticleSystem explodeParticles;
+    [SerializeField] ParticleSystem successParticles;
 
     // Start is called before the first frame update
     void Start() {
@@ -42,20 +45,26 @@ public class Rocket : MonoBehaviour {
                 break;
         }
     }
+    private void ExcecuteFinish() {
+        audioSource.Stop();
+        engineParticles.Stop();
+
+        successParticles.Play();
+        audioSource.PlayOneShot(successSound);
+        currentState = State.Transcending;
+        Invoke("LoadNextScene", 1f);
+    }
 
     private void ExcecuteDeath() {
         audioSource.Stop();
+        engineParticles.Stop();
+
+        explodeParticles.Play();
         audioSource.PlayOneShot(explodeSound);
         currentState = State.Dying;
         Invoke("ResetLevel", 1f);
     }
 
-    private void ExcecuteFinish() {
-        audioSource.Stop();
-        audioSource.PlayOneShot(successSound);
-        currentState = State.Transcending;
-        Invoke("LoadNextScene", 1f);
-    }
 
     private void ResetLevel() {
         SceneManager.LoadScene(0);
@@ -68,6 +77,22 @@ public class Rocket : MonoBehaviour {
     private void ProcessInput() {
         Thrusting();
         Rotating();
+    }
+
+    private void Thrusting() {
+        float adjustFrame = Time.deltaTime * mainThrust;
+        if (Input.GetKey(KeyCode.Space)) {
+            rigidbody.AddRelativeForce(Vector3.up * adjustFrame);
+            if (!audioSource.isPlaying) {
+                audioSource.PlayOneShot(mainEngine);
+            }
+            engineParticles.Play();
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space)) {
+            engineParticles.Stop();
+            audioSource.Stop();
+        }
     }
 
     private void Rotating() {
@@ -83,18 +108,4 @@ public class Rocket : MonoBehaviour {
         rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionZ;
     }
 
-    private void Thrusting() {
-        float adjustFrame = Time.deltaTime * mainThrust;
-        if (Input.GetKey(KeyCode.Space)) {
-
-            rigidbody.AddRelativeForce(Vector3.up * adjustFrame);
-            if (!audioSource.isPlaying) {
-                audioSource.PlayOneShot(mainEngine);
-            }
-        }
-
-        if (Input.GetKeyUp(KeyCode.Space)) {
-            audioSource.Stop();
-        }
-    }
 }
