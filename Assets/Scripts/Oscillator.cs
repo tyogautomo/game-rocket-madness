@@ -1,15 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+
+[DisallowMultipleComponent]
 public class Oscillator : MonoBehaviour {
-    // Start is called before the first frame update
-    void Start() {
 
+    [SerializeField] Vector3 maxMovementVector;
+    // TODO move this later
+    [SerializeField] [Range(0, 1)] float movementFactor;
+    Vector3 startingPosition;
+
+    void Start() {
+        startingPosition = transform.position;
     }
 
-    // Update is called once per frame
     void Update() {
-
+        Vector3 offset = maxMovementVector * movementFactor;
+        transform.position = startingPosition + offset;
     }
 }
