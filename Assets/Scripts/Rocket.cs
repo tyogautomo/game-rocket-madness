@@ -8,6 +8,7 @@ public class Rocket : MonoBehaviour {
     Rigidbody rigidbody;
     AudioSource audioSource;
     State currentState = State.Alive;
+    bool isCollided = true;
     [SerializeField] float loadDelay = 1f;
     [SerializeField] float rcsThrust = 200f;
     [SerializeField] float mainThrust = 200f;
@@ -42,7 +43,7 @@ public class Rocket : MonoBehaviour {
                 ExcecuteFinish();
                 break;
             default:
-                ExcecuteDeath();
+                if (isCollided) ExcecuteDeath();
                 break;
         }
     }
@@ -72,12 +73,19 @@ public class Rocket : MonoBehaviour {
     }
 
     private void LoadNextScene() {
-        SceneManager.LoadScene(1);
+        if (SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings - 1) {
+            SceneManager.LoadScene(0);
+        } else {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 
     private void ProcessInput() {
         Thrusting();
         Rotating();
+        if (Debug.isDebugBuild) {
+            DebuggerKey();
+        }
     }
 
     private void Thrusting() {
@@ -107,6 +115,14 @@ public class Rocket : MonoBehaviour {
             transform.Rotate(-Vector3.forward * adjustFrame);
         }
         rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionZ;
+    }
+
+    private void DebuggerKey() {
+        if (Input.GetKeyDown(KeyCode.L)) {
+            LoadNextScene();
+        } else if (Input.GetKeyDown(KeyCode.C)) {
+            isCollided = !isCollided;
+        }
     }
 
 }
