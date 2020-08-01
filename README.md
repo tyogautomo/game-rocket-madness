@@ -1,5 +1,5 @@
 # Rocket Madness
-Link to my game: [Terminal Hacker](https://sharemygame.com/@tyogautomo/rocket-madness)
+Link to my game: [Rocket Madness](https://i.simmer.io/@tyogautomo/rocket-madness)
 
 ## Screenshots
 ![Main Menu Screen](https://i.ibb.co/DzJ4m0n/Screenshot-1.jpg)
