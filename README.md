@@ -24,5 +24,5 @@ To control the rocket, simply use these 3 key buttons:
 3. DL use this key to rotate right
 
 Tip to play this game: just DON'T CRASH! 
-If at certain level you crash everything but landing pad and launch pad, your rocket will die and restart the level from 1 again :)
+If at certain level you crash everything but landing pad and launch pad, your rocket will die and restart the level from 1 again :))
 
